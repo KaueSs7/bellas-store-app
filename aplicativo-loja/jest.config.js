@@ -5,6 +5,7 @@ module.exports = {
   },
   transformIgnorePatterns: [
     'node_modules/(?!(react-native|@react-native|@react-native-community|@react-native-async-storage/async-storage|@expo/vector-icons|@testing-library/react-native|expo-font)/)',
+  ],
   setupFiles: [
     './node_modules/react-native-gesture-handler/jestSetup.js',
     './jest/setup.js', 
