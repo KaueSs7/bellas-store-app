@@ -28,10 +28,10 @@
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
-    "babel-jest": "^29.0.0", // Adicionado
+    "babel-jest": "^29.0.0",
     "@testing-library/react-native": "^11.5.4",
     "react-test-renderer": "^18.3.1",
-    "jest": "^29.0.0" // Atualizado
+    "jest": "^29.0.0"
   },
   "jest": {
     "preset": "react-native",
