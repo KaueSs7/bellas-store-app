@@ -8,6 +8,7 @@ module.exports = {
   ],
   setupFiles: [
     './node_modules/react-native-gesture-handler/jestSetup.js',
+    './node_modules/react-native-reanimated/mock.js',
     './jest/setup.js',
   ],
   moduleNameMapper: {
