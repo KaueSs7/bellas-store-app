@@ -28,9 +28,9 @@
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
-    "jest": "^29.0.0", // Adicionando o Jest para testes
-    "babel-jest": "^29.0.0", // Adicionando o Babel para integração com o Jest
-    "@testing-library/react-native": "^11.0.0" // Biblioteca auxiliar para testes em React Native
+    "jest": "^29.0.0", 
+    "babel-jest": "^29.0.0", 
+    "@testing-library/react-native": "^11.0.0"
   },
   "private": true
 }
