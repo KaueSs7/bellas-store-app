@@ -21,13 +21,10 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Limpar cache do npm
-        run: npm cache clean --force
-
       - name: Navegar até o diretório do projeto e instalar dependências
         run: |
           cd aplicativo-loja
-          npm install --legacy-peer-deps  # Adicionando a opção para ignorar conflitos
+          npm install
 
       - name: Rodar os testes
         run: |
