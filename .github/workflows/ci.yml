@@ -5,22 +5,26 @@ on:
     branches:
       - main
   pull_request:
+    branches:
+      - main
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Check out code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '14'
+      - name: Configure Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
 
-    - name: Install dependencies
-      run: npm install
+      - name: Install dependencies
+        run: npm install
+        working-directory: ./aplicativo_Loja  
 
-    - name: Run tests
-      run: npm test
+      - name: Run tests
+        run: npm test
+        working-directory: ./aplicativo_Loja  
