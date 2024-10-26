@@ -5,7 +5,7 @@ jest.mock('react-native-reanimated', () => {
   return MockedReanimated;
 });
 
-// Mockando os módulos do Expo
+
 jest.mock('@expo/vector-icons', () => {
   return {
     Ionicons: () => null,
@@ -18,4 +18,24 @@ jest.mock('expo-font', () => {
     loadAsync: jest.fn(),
     useFonts: jest.fn(() => [true]),
   };
+});
+
+
+jest.mock('react-native/Libraries/Lists/FlatList', () => {
+  return jest.fn((props) => {
+    return <mock-FlatList {...props} />;
+  });
+});
+
+
+jest.mock('react-native/Libraries/Lists/VirtualizedList', () => {
+  return jest.fn((props) => {
+    return <mock-VirtualizedList {...props} />;
+  });
+});
+
+jest.mock('react-native/Libraries/Components/ScrollView/ScrollView', () => {
+  return jest.fn((props) => {
+    return <mock-ScrollView {...props} />;
+  });
 });
