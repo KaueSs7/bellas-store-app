@@ -4,8 +4,7 @@ module.exports = {
     '^.+\\.(js|jsx|ts|tsx)$': 'babel-jest',
   },
   transformIgnorePatterns: [
-    'node_modules/(?!(react-native|@react-native|@react-native-community|@react-native-async-storage/async-storage|@expo/vector-icons|@testing-library/react-native|expo-font)/)', // Adicione 'expo-font' aqui
-  ],
+    'node_modules/(?!(react-native|@react-native|@react-native-community|@react-native-async-storage/async-storage|@expo/vector-icons|@testing-library/react-native|expo-font)/)',
   setupFiles: [
     './node_modules/react-native-gesture-handler/jestSetup.js',
     './jest/setup.js', 
