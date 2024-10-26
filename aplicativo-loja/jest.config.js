@@ -8,7 +8,7 @@ module.exports = {
   ],
   setupFiles: [
     './node_modules/react-native-gesture-handler/jestSetup.js',
-    '../aplicativo-loja/jest/setup.js', 
+    './jest/setup.js', 
   ],
   moduleNameMapper: {
     '\\.(css|less)$': 'identity-obj-proxy',
