@@ -1,4 +1,4 @@
-name: CI
+name: CI Workflow
 
 on:
   push:
@@ -13,18 +13,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout do código
         uses: actions/checkout@v2
 
-      - name: Configure Node.js
+      - name: Configurar Node.js
         uses: actions/setup-node@v2
         with:
           node-version: '16'
 
-      - name: Install dependencies
-        run: npm install
-        working-directory: ../aplicativo_Loja
+      - name: Navegar até o diretório do projeto e instalar dependências
+        run: |
+          cd aplicativo_Loja
+          npm install
 
-      - name: Run tests
-        run: npm test
-        working-directory: ../aplicativo_Loja
+      - name: Rodar os testes
+        run: |
+          cd aplicativo_Loja
+          npm test
