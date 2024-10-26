@@ -23,10 +23,10 @@ jobs:
 
       - name: Navegar até o diretório do projeto e instalar dependências
         run: |
-          cd aplicativo_Loja
+          cd aplicativo-loja
           npm install
 
       - name: Rodar os testes
         run: |
-          cd aplicativo_Loja
+          cd aplicativo-loja
           npm test
