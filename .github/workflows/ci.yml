@@ -25,6 +25,7 @@ jobs:
         run: |
           cd aplicativo-loja
           npm install
+          npm install react-native-reanimated --save
 
       - name: Rodar os testes
         run: |
