@@ -5,3 +5,17 @@ jest.mock('react-native-reanimated', () => {
   return MockedReanimated;
 });
 
+// Mockando os módulos do Expo
+jest.mock('@expo/vector-icons', () => {
+  return {
+    Ionicons: () => null,
+    MaterialCommunityIcons: () => null,
+  };
+});
+
+jest.mock('expo-font', () => {
+  return {
+    loadAsync: jest.fn(),
+    useFonts: jest.fn(() => [true]),
+  };
+});
