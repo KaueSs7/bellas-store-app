@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { View, Text, StyleSheet, Linking, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, Linking, TouchableOpacity, ScrollView } from 'react-native';
 import { AuthContext } from '../AuthContext'; 
 import { Ionicons } from '@expo/vector-icons'; 
 import { MaterialCommunityIcons } from '@expo/vector-icons';
@@ -14,14 +14,15 @@ export default function ProfileScreen({ navigation }) {
 
   const handleWhatsApp = () => {
     const message = "Olá, gostaria de saber mais sobre os produtos.";
-    const phoneNumber = user ? user.whatsapp : "5521997564503"; 
+    const phoneNumber = "5521997564503"; 
+  
     Linking.openURL(`whatsapp://send?text=${encodeURIComponent(message)}&phone=${phoneNumber}`);
   };
 
   console.log('Dados do usuário:', user); 
 
   return (
-    <View style={styles.container}>
+    <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.topMargin} />
       <View style={styles.header}>
         <Text style={styles.headerText}>Perfil</Text>
@@ -46,20 +47,18 @@ export default function ProfileScreen({ navigation }) {
           Sinta-se à vontade para explorar nossas coleções e encontrar peças que combinam com o seu estilo!
         </Text>
       </View>
-      
       <View style={styles.whatsappContainer}>
         <TouchableOpacity style={styles.whatsappButton} onPress={handleWhatsApp}>
           <MaterialCommunityIcons name="whatsapp" size={28} color="green" />
           <Text style={styles.whatsappText}>Fale Conosco</Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     padding: 20,
     backgroundColor: '#FDEAF3',
   },
