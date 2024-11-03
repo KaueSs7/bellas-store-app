@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { View, TextInput, TouchableOpacity, Text, Alert, StyleSheet } from 'react-native';
+import { View, TextInput, TouchableOpacity, Text, Alert, StyleSheet, ScrollView, KeyboardAvoidingView, Platform } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { AuthContext } from '../AuthContext'; 
 import CryptoJS from 'crypto-js'; 
@@ -17,27 +17,22 @@ export default function RegisterScreen({ navigation }) {
 
   const formatDate = (date) => {
     const cleaned = ('' + date).replace(/\D/g, '');
-
     let formattedDate = cleaned;
-
     if (cleaned.length > 2) {
       formattedDate = `${cleaned.slice(0, 2)}/${cleaned.slice(2)}`;
     }
     if (cleaned.length > 4) {
       formattedDate = `${cleaned.slice(0, 2)}/${cleaned.slice(2, 4)}/${cleaned.slice(4, 8)}`;
     }
-
     return formattedDate;
   };
 
   const formatCEP = (value) => {
     const cleaned = ('' + value).replace(/\D/g, '');
     let formattedCEP = cleaned;
-
     if (cleaned.length > 5) {
       formattedCEP = `${cleaned.slice(0, 5)}-${cleaned.slice(5, 8)}`;
     }
-
     return formattedCEP;
   };
 
@@ -70,7 +65,6 @@ export default function RegisterScreen({ navigation }) {
       }
 
       const encryptedPassword = CryptoJS.AES.encrypt(password, 'sua-chave-secreta').toString();
-
       await AsyncStorage.setItem(email, JSON.stringify({ 
         password: encryptedPassword, 
         name, 
@@ -80,13 +74,7 @@ export default function RegisterScreen({ navigation }) {
         whatsapp 
       }));
 
-      setUser({
-        name: name,
-        address: address,
-        cep: cep,
-        birthdate: birthdate,
-        whatsapp: whatsapp
-      });
+      setUser({ name, address, cep, birthdate, whatsapp });
 
       Alert.alert('Sucesso', 'Cadastro realizado com sucesso!');
       navigation.navigate('Login');
@@ -97,84 +85,90 @@ export default function RegisterScreen({ navigation }) {
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Cadastro</Text>
-      <TextInput 
-        style={styles.input} 
-        placeholder="Nome" 
-        value={name} 
-        onChangeText={setName} 
-      />
-      <TextInput 
-        style={styles.input} 
-        placeholder="Email" 
-        value={email} 
-        onChangeText={setEmail} 
-        keyboardType="email-address"
-      />
-      <TextInput 
-        style={styles.input} 
-        placeholder="Senha" 
-        secureTextEntry 
-        value={password} 
-        onChangeText={setPassword} 
-      />
-      <TextInput 
-        style={styles.input} 
-        placeholder="Confirmar Senha" 
-        secureTextEntry 
-        value={confirmPassword} 
-        onChangeText={setConfirmPassword} 
-      />
-      <TextInput 
-        style={styles.input} 
-        placeholder="Endereço" 
-        value={address} 
-        onChangeText={setAddress} 
-      />
-      <TextInput 
-        style={styles.input} 
-        placeholder="CEP (XXXXX-XXX)" 
-        value={cep} 
-        onChangeText={handleCepChange} 
-        keyboardType="numeric"
-        maxLength={10}
-      />
-      <TextInput 
-        style={styles.input} 
-        placeholder="Data de Nascimento (DD/MM/AAAA)" 
-        value={birthdate} 
-        onChangeText={handleBirthdateChange} 
-        keyboardType="numeric"
-        maxLength={10}
-      />
-      <TextInput 
-        style={styles.input} 
-        placeholder="Número do WhatsApp (5521XXXXXXXXX)" 
-        value={whatsapp} 
-        onChangeText={setWhatsapp} 
-        keyboardType="numeric"
-        maxLength={15} 
-      />
+    <KeyboardAvoidingView
+      style={{ flex: 1 }}
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+    >
+      <ScrollView contentContainerStyle={styles.container}>
+        <Text style={styles.title}>Cadastro</Text>
 
-      <TouchableOpacity style={styles.registerButton} onPress={handleRegister}>
-        <Text style={styles.registerButtonText}>Cadastrar</Text>
-      </TouchableOpacity>
+        <TextInput 
+          style={styles.input} 
+          placeholder="Nome" 
+          value={name} 
+          onChangeText={setName} 
+        />
+        <TextInput 
+          style={styles.input} 
+          placeholder="Email" 
+          value={email} 
+          onChangeText={setEmail} 
+          keyboardType="email-address"
+        />
+        <TextInput 
+          style={styles.input} 
+          placeholder="Senha" 
+          secureTextEntry 
+          value={password} 
+          onChangeText={setPassword} 
+        />
+        <TextInput 
+          style={styles.input} 
+          placeholder="Confirmar Senha" 
+          secureTextEntry 
+          value={confirmPassword} 
+          onChangeText={setConfirmPassword} 
+        />
+        <TextInput 
+          style={styles.input} 
+          placeholder="Endereço" 
+          value={address} 
+          onChangeText={setAddress} 
+        />
+        <TextInput 
+          style={styles.input} 
+          placeholder="CEP (XXXXX-XXX)" 
+          value={cep} 
+          onChangeText={handleCepChange} 
+          keyboardType="numeric"
+          maxLength={10}
+        />
+        <TextInput 
+          style={styles.input} 
+          placeholder="Data de Nascimento (DD/MM/AAAA)" 
+          value={birthdate} 
+          onChangeText={handleBirthdateChange} 
+          keyboardType="numeric"
+          maxLength={10}
+        />
+        <TextInput 
+          style={styles.input} 
+          placeholder="Número do WhatsApp (5521XXXXXXXXX)" 
+          value={whatsapp} 
+          onChangeText={setWhatsapp} 
+          keyboardType="numeric"
+          maxLength={15} 
+        />
 
-      <Text 
-        style={styles.link} 
-        onPress={() => navigation.navigate('Login')}
-      >
-        <Text>Já tem uma conta? </Text>
-        <Text style={{ color: 'blue', textDecorationLine: 'underline' }}>Faça login</Text>
-      </Text>
-    </View>
+        <TouchableOpacity style={styles.registerButton} onPress={handleRegister}>
+          <Text style={styles.registerButtonText}>Cadastrar</Text>
+        </TouchableOpacity>
+
+        <Text 
+          style={styles.link} 
+          onPress={() => navigation.navigate('Login')}
+        >
+          <Text>Já tem uma conta? </Text>
+          <Text style={{ color: 'blue', textDecorationLine: 'underline' }}>Faça login</Text>
+        </Text>
+      </ScrollView>
+    </KeyboardAvoidingView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flexGrow: 1,
     justifyContent: 'center',
     padding: 20,
     backgroundColor: '#FDEAF3',
