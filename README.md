@@ -31,10 +31,9 @@ Bellas Store é um aplicativo de loja de roupas femininas desenvolvido em React 
 /aplicativo_Loja
 │
 ├── /assets            # Imagens e recursos do projeto
-├── /components        # Componentes reutilizáveis
+├── /data              # Configuração dos produtos
 ├── /screens           # Telas do aplicativo
-├── /navigation        # Configuração de navegação
-├── App.js             # Arquivo principal do app
+├── App.js             # Arquivo principal do app e configuraçao da navegação
 └── package.json       # Configurações do projeto
 ```
 ##🛠️ Como Rodar o Projeto
