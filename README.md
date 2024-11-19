@@ -20,10 +20,10 @@ React Navigation (para navegação entre telas)
 
 ## 🎨 Demonstração
 **Tela Inicial (Catálogo de Produtos):**  
-![Tela Inicial](https://imgur.com/a/QMr3T73)
+![Tela Inicial](https://imgur.com/5YRBs6O)
 
 **Tela de Detalhes do Produto:**  
-![Tela Detalhes](https://imgur.com/a/RCPkOgE)
+![Tela Detalhes](https://imgur.com/zMb8QPB)
 
 ## 📂 Estrutura do Projeto
 bash
