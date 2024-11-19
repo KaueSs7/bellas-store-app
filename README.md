@@ -2,21 +2,21 @@
 Bellas Store é um aplicativo de loja de roupas femininas desenvolvido em React Native, focado em oferecer uma experiência simples e intuitiva para o usuário. O aplicativo inclui funcionalidades como catálogo de produtos, carrinho de compras, detalhamento de produtos e integração com WhatsApp para atendimento personalizado.
 
 ## 📋 Funcionalidades
-Exibição de um catálogo de produtos com informações detalhadas (nome, preço e tamanhos disponíveis).
-Opção de compra direta com pagamento instantâneo.
-Carrinho de compras com gerenciamento de itens.
-Integração com WhatsApp para atendimento ao cliente.
-Tela de perfil com informações do usuário e seções personalizadas.
-Segurança de dados com criptografia de senhas.
-Design intuitivo e responsivo.
+-Exibição de um catálogo de produtos com informações detalhadas (nome, preço e tamanhos disponíveis).
+-Opção de compra direta com pagamento instantâneo.
+-Carrinho de compras com gerenciamento de itens.
+-Integração com WhatsApp para atendimento ao cliente.
+-Tela de perfil com informações do usuário e seções personalizadas.
+-Segurança de dados com criptografia de senhas.
+-Design intuitivo e responsivo.
 
 ## 🚀 Tecnologias Utilizadas
-React Native
-Expo
-JavaScript (ES6+)
-CryptoJS (para criptografia de senhas)
-AsyncStorage (para armazenamento local)
-React Navigation (para navegação entre telas)
+-React Native
+-Expo
+-JavaScript (ES6+)
+-CryptoJS (para criptografia de senhas)
+-AsyncStorage (para armazenamento local)
+-React Navigation (para navegação entre telas)
 
 ## 🎨 Demonstração
 **Tela Inicial (Catálogo de Produtos):**  
@@ -26,8 +26,6 @@ React Navigation (para navegação entre telas)
 ![Tela Detalhes](https://i.imgur.com/zMb8QPB.png)
 
 ## 📂 Estrutura do Projeto
-bash
-Copiar código
 
 /aplicativo_Loja
 │
@@ -39,19 +37,19 @@ Copiar código
 └── package.json       # Configurações do projeto
 
 ## 🛠️ Como Rodar o Projeto
-Clone o repositório:
-git clone https://github.com/seu-usuario/bellas-store.git
+1. Clone o repositório:
+   git clone https://github.com/seu-usuario/bellas-store.git
 
-Acesse o diretório do projeto:
-cd bellas-store
+2. Acesse o diretório do projeto:
+   cd bellas-store
 
-Instale as dependências:
-npm install
+3. Instale as dependências:
+   npm install
 
-Execute o aplicativo:
-expo start
+4. Execute o aplicativo:
+   expo start
 
-Escaneie o QR Code com o Expo Go (no Android ou iOS) para testar o aplicativo no celular.
+5. Escaneie o QR Code com o Expo Go (no Android ou iOS) para testar o aplicativo no celular.
 
 ## 🏆 Status do Projeto
 O projeto está em desenvolvimento, com novas funcionalidades sendo adicionadas regularmente.
