@@ -61,7 +61,7 @@ function MainTabs() {
     </Tab.Navigator>
   );
 }
-
+//teste
 export default function App() {
   return (
     <AuthProvider> 
